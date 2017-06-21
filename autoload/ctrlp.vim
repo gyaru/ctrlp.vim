@@ -999,14 +999,6 @@ endf
 fu! s:KeyLoop()
 	let [t_ve, guicursor] = [&t_ve, &guicursor]
 	wh exists('s:init') && s:keyloop
-		try
-			set t_ve=
-			set guicursor=a:NONE
-			let nr = getchar()
-		fina
-			let &t_ve = t_ve
-			let &guicursor = guicursor
-		endt
 		let chr = !type(nr) ? nr2char(nr) : nr
 		if nr >=# 0x20
 			cal s:PrtFocusMap(chr)
